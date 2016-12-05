@@ -14,7 +14,7 @@ namespace day5
         static void Main(string[] args)
         {
             const string secret = "ffykfhsq";
-            int totalThread = 6;
+            int totalThread = 8;
             MD5[] md5s = new MD5[totalThread];
             for (int i = 0; i < totalThread; i++) md5s[i] = MD5.Create();
             
@@ -35,11 +35,11 @@ namespace day5
                 if (hash[0] == 0 && hash[1] == 0 && hash[2] <= 0x0F)
                 {
                     passwordstr += hash[2].ToString("X2")[1];
-                    Console.WriteLine("password {0}", password);
+                    Console.WriteLine("password {0}", passwordstr);
                 }
-            } while (password.Length < 8);
+            } while (passwordstr.Length < 8);
 
-            Console.WriteLine("result day5.1 = {0}. [{1}]\n", passwordstr);
+            Console.WriteLine("result day5.1 = {0}.]\n", passwordstr);
 
 
 
