@@ -13,7 +13,11 @@ namespace adventofcode2016
             //Console.WriteLine("result day7.1 {0}, day7.2 {1} ", day7.part1(false), day7.part2());
             //Console.WriteLine("result day8.1 {0}, day8.2 {1} ", day8.part1(true), day8.part2());
             //Console.WriteLine("result day9.1 {0}, day9.2 {1} ", day9.part1(true), day9.part2());
-            Console.WriteLine("result day10.1 {0}, day10.2 {1} ", day10.part1(true), day10.part2());
+            //Console.WriteLine("result day10.1 {0}, day10.2 {1} ", day10.part1(true), day10.part2());
+            //Console.WriteLine("result day11.1 {0}, day11.2 {1} ", day11.part1(true), day11.part2());
+            Console.WriteLine("result day12.1 {0}, day12.2 {1} ", day12.part1(true), day12.part2());
+
+
 
             Console.Write("Presse eny key ...");
             Console.ReadKey();
