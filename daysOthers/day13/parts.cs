@@ -90,6 +90,7 @@ namespace adventofcode2016
             for (int y = 0; y < matrix.GetLength(0); y++)
                 for (int x = 0; x < matrix.GetLength(1); x++)
                     matrix[y, x] = Convert.ToString(((x * x + 3 * x + 2 * x * y + y + y * y) + input), 2).Count(v => v == '1') % 2 == 1 ? true : false;
+            matrixpath = new bool[50, 50];
         }
 
         static void draw(int curx,int cury,bool[,] matrixoffixed )
@@ -138,8 +139,12 @@ namespace adventofcode2016
             point _lastpoint = new point() { x = 1, y = 1 };
             matrixpath[_lastpoint.y, _lastpoint.x] = true;
             _path.Push(_lastpoint);
+
+            int moves = 0;
+            
             do
             {
+
                 draw(_lastpoint.x, _lastpoint.y, matrixpath);
                 var keypressed = Console.ReadKey();
                 switch (keypressed.Key)
@@ -162,6 +167,7 @@ namespace adventofcode2016
                             _path.Pop();
                             _lastpoint = _path.Peek();
                         }
+                        moves++;
                         break;
                     case ConsoleKey.Backspace:
                         matrixpath[_lastpoint.y, _lastpoint.x] = false;
@@ -170,6 +176,7 @@ namespace adventofcode2016
                         break;
                 }
             } while ((_lastpoint.x != pointX || _lastpoint.y != pointY) && _path.Count > 0);
+            Console.WriteLine("Ended in {0} moves", moves);
             return _path.Count;
         }
 
@@ -184,6 +191,9 @@ namespace adventofcode2016
             matrixpath[_lastpoint.y, _lastpoint.x] = true;
             matrixfixed[_lastpoint.y, _lastpoint.x] = true;
             _path.Push(_lastpoint);
+
+            int moves = 0;
+
             do
             {
 
@@ -203,7 +213,7 @@ namespace adventofcode2016
                     if(_path.Count>0)
                         _lastpoint = _path.Peek();
                 }
-                
+                moves++;
             } while ( _path.Count > 0);
             draw(_lastpoint.x, _lastpoint.y, matrixfixed);
 
@@ -212,6 +222,8 @@ namespace adventofcode2016
                 for (int x = 0; x < matrix.GetLength(1); x++)
                     if (matrixfixed[y, x])
                         count++;
+            Console.WriteLine("Ended in {0} moves", moves);
+
             return count;
 
         }
