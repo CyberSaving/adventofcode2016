@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,8 @@ namespace adventofcode2016
     {
         static void Main(string[] args)
         {
+            Stopwatch sp = new Stopwatch();
+            sp.Start();
             //Console.WriteLine("result day7.1 {0}, day7.2 {1} ", day7.part1(false), day7.part2());
             //Console.WriteLine("result day8.1 {0}, day8.2 {1} ", day8.part1(true), day8.part2());
             //Console.WriteLine("result day9.1 {0}, day9.2 {1} ", day9.part1(true), day9.part2());
@@ -27,8 +30,9 @@ namespace adventofcode2016
             //Console.WriteLine("result day21.1 {0}, day21.2 {1} ", day21.part1(false), day21.part2(true));
             //Console.WriteLine("result day22.1 {0}, day22.2 {1} ", day22.part1(false), day22.part2(true));
             //Console.WriteLine("result day23.1 {0}, day23.2 {1} ", day23.part1(), day23.part2(true));
-            Console.WriteLine("result day24.1 {0}, day24.2 {1} ", day24.part1(true), day24.part2(true));
-
+            //Console.WriteLine("result day24.1 {0}, day24.2 {1} ", day24.part1(true), day24.part2(false));
+            Console.WriteLine("result day25.1 {0}", day25.part1(false));
+            Console.WriteLine("Ended in {0:0.00#} sec", sp.Elapsed.TotalSeconds);
 
             Console.Write("Presse eny key ...");
             Console.ReadKey();
